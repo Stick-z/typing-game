@@ -10,7 +10,7 @@ input.value = " "; // Change later to ensure the user doesn't click before the s
 
 input.addEventListener("keypress", (e) => {
   if (e.key == " ") {
-    if (score == words.length) {
+    if (score == words.length - 1) {
       console.log("yes");
     } else {
       if (input.value == words[score]) {
