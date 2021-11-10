@@ -13,6 +13,7 @@ const input = document.getElementById("input");
 var words = ["This", "is", "a", "test", "sentence."];
 var score = 0;
 var mistakes = 0;
+var startTime = 0;
 word.innerHTML = words[0];
 next.innerHTML = words[1];
 
@@ -27,6 +28,7 @@ function complete() {
 	input.value = "";
 	input.readOnly = true;
 	p.innerHTML = "Nice";
+	console.log(words.length / ((Date.now() - startTime) / 60000));
 }
 
 function checkUndefined(value) {
@@ -62,11 +64,14 @@ function check() {
 
 /*
 
-         Main Loop
+         Main
 
 */
 
 input.addEventListener("keypress", (e) => {
+	if (startTime == 0) {
+		startTime = Date.now();
+	}
 	if (e.key == " ") {
 		check();
 	}
