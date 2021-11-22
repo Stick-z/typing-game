@@ -42,3 +42,7 @@
 	left: 50%;
 	top: 50%;
 }
+
+#endScreen {
+	background-color: red;
+}
