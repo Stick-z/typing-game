@@ -1,0 +1,48 @@
+#screen {
+	background-color: #66d9ff;
+	margin: auto;
+	width: 80%;
+	height: 50%;
+	padding: 10%;
+}
+
+#gamearea {
+	background-color: silver;
+	width: 80%;
+	height: 50%;
+	padding: 10%;
+	text-align: center;
+}
+
+#paragraph {
+	background-color: whitesmoke;
+	width: 25%;
+	height: 5%;
+	padding: 1.5%;
+	margin: auto;
+	text-align: center;
+}
+
+#input {
+	width: 25%;
+	height: 5%;
+	padding: 1.5%;
+	text-align: center;
+}
+
+#menu {
+	position: absolute;
+	width: 25%;
+	height: 70%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: -12.5%;
+	margin-top: -25%;
+	left: 50%;
+	top: 50%;
+}
+
+#endScreen {
+	background-color: red;
+}
