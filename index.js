@@ -20,7 +20,7 @@ word.innerHTML = words[0];
 next.innerHTML = words[1];
 
 /*
-            Custom Functions
+			Custom Methods
 */
 
 function mainMenu() {
@@ -35,6 +35,14 @@ function game() {
 	document.getElementById("gamearea").style.display = "";
 	document.getElementById("endScreen").style.display = "none";
 	document.getElementById("menu").style.display = "none";
+	textAreaValue = document.querySelector("textarea").value;
+	if (textAreaValue != "") {
+		words = textAreaValue.split(" ");
+		if (Array.isArray(words) != true) {
+			console.log("hmmmhmhmhmh");
+			words = [textAreaValue];
+		}
+	}
 }
 
 function chars(arr) {
@@ -51,8 +59,10 @@ function complete() {
 	document.getElementById("endScreen").style.display = "";
 	console.log("complete!");
 	input.value = "";
-	document.getElementById("wpm").innerHTML +=
-		chars(words) / 5 / ((Date.now() - startTime) / 60000);
+	document.getElementById("wpm").innerHTML =
+		"You typed " +
+		Math.round(chars(words) / 5 / ((Date.now() - startTime) / 60000)) +
+		" words per minute!";
 }
 
 function checkUndefined(value) {
