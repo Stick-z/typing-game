@@ -16,8 +16,6 @@ var words = ["This", "is", "a", "test", "sentence."];
 var score = 0;
 var mistakes = 0;
 var startTime = 0;
-word.innerHTML = words[0];
-next.innerHTML = words[1];
 
 /*
 			Custom Methods
@@ -38,11 +36,9 @@ function game() {
 	textAreaValue = document.querySelector("textarea").value;
 	if (textAreaValue != "") {
 		words = textAreaValue.split(" ");
-		if (Array.isArray(words) != true) {
-			console.log("hmmmhmhmhmh");
-			words = [textAreaValue];
-		}
 	}
+	word.innerHTML = words[0];
+	next.innerHTML = checkUndefined(words[1]);
 }
 
 function chars(arr) {
