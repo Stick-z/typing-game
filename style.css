@@ -43,6 +43,7 @@ body {
 	margin: auto;
 	width: 50%;
 	height: 100%;
+	background-image: linear-gradient(to top, silver, #66d9ff 50%, silver 100%);
 }
 
 #button {
