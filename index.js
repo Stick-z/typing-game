@@ -22,74 +22,75 @@ var startTime = 0;
 */
 
 function mainMenu() {
-	document.getElementById("screen").style.display = "none";
-	document.getElementById("gamearea").style.display = "none";
-	document.getElementById("endScreen").style.display = "none";
-	document.getElementById("menu").style.display = "";
+  document.getElementById("screen").style.display = "none";
+  document.getElementById("gamearea").style.display = "none";
+  document.getElementById("endScreen").style.display = "none";
+  document.getElementById("menu").style.display = "";
 }
 
 function game() {
-	document.getElementById("screen").style.display = "";
-	document.getElementById("gamearea").style.display = "";
-	document.getElementById("endScreen").style.display = "none";
-	document.getElementById("menu").style.display = "none";
-	textAreaValue = document.querySelector("textarea").value;
-	if (textAreaValue != "") {
-		words = textAreaValue.split(" ");
-	}
-	word.innerHTML = words[0];
-	next.innerHTML = checkUndefined(words[1]);
+  document.getElementById("screen").style.display = "";
+  document.getElementById("gamearea").style.display = "";
+  document.getElementById("endScreen").style.display = "none";
+  document.getElementById("menu").style.display = "none";
+  textAreaValue = document.querySelector("textarea").value;
+  if (textAreaValue != "") {
+    words = textAreaValue.split(" ");
+  }
+  word.innerHTML = words[0];
+  next.innerHTML = checkUndefined(words[1]);
+  input.focus();
 }
 
 function chars(arr) {
-	let temp = 0;
-	for (i of arr) {
-		temp += i.length;
-	}
-	return temp;
+  let temp = 0;
+  for (i of arr) {
+    temp += i.length;
+  }
+  return temp;
 }
 
 function complete() {
-	document.getElementById("screen").style.display = "none";
-	document.getElementById("gamearea").style.display = "none";
-	document.getElementById("endScreen").style.display = "";
-	console.log("complete!");
-	input.value = "";
-	document.getElementById("wpm").innerHTML =
-		"You typed " +
-		Math.round(chars(words) / 5 / ((Date.now() - startTime) / 60000)) +
-		" words per minute!";
+  document.getElementById("screen").style.display = "none";
+  document.getElementById("gamearea").style.display = "none";
+  document.getElementById("endScreen").style.display = "";
+  console.log("complete!");
+  input.value = "";
+  document.getElementById("wpm").innerHTML =
+    "You typed " +
+    Math.round(chars(words) / 5 / ((Date.now() - startTime) / 60000)) +
+    " words per minute!";
 }
 
 function checkUndefined(value) {
-	if (value == undefined) {
-		console.log("yes");
-		return "";
-	} else {
-		return value;
-	}
+  if (value == undefined) {
+    console.log("yes");
+    return "";
+  } else {
+    return value;
+  }
 }
 
 function correctUpdate() {
-	input.value = "";
-	score++;
-	past.innerHTML = words[score - 1].fontcolor("green");
-	word.innerHTML = words[score];
-	next.innerHTML = checkUndefined(words[score + 1]);
-	if (score == words.length) {
-		complete();
-	}
+  input.value = "";
+  score++;
+  past.innerHTML = words[score - 1].fontcolor("green");
+  word.innerHTML = words[score];
+  next.innerHTML = checkUndefined(words[score + 1]);
+  if (score == words.length) {
+    complete();
+  }
 }
 
 function check() {
-	if (input.value.replace(/\s+/g, "") == words[score]) {
-		console.log("Correct.");
-		correctUpdate();
-	} else {
-		console.log("wrong");
-		input.value = "";
-		word.innerHTML = words[score].fontcolor("red");
-	}
+  if (input.value.replace(/\s+/g, "") == words[score]) {
+    console.log("Correct.");
+    correctUpdate();
+  } else {
+    console.log("wrong");
+    input.value = "";
+    word.innerHTML = words[score].fontcolor("red");
+  }
 }
 
 /*
@@ -99,10 +100,10 @@ function check() {
 mainMenu();
 
 input.addEventListener("keypress", (e) => {
-	if (startTime == 0) {
-		startTime = Date.now();
-	}
-	if (e.key == " ") {
-		check();
-	}
+  if (startTime == 0) {
+    startTime = Date.now();
+  }
+  if (e.key == " ") {
+    check();
+  }
 });
