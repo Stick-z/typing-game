@@ -21,6 +21,25 @@ var startTime = 0;
 			Custom Methods
 */
 
+function split(str) {
+	tempArr = new Array();
+	if (str.search(" ") != -1) {
+		tempArr = str.split(" ");
+		if (str.search("\n") != -1) {
+			str = tempArr;
+			tempArr = [];
+			for (i of str) {
+				i = i.split("\n");
+				console.log(i);
+				tempArr.push(...i);
+			}
+		}
+	} else if (str.search("\n")) {
+		tempArr = str.split("\n");
+	}
+	return tempArr;
+}
+
 function mainMenu() {
 	document.getElementById("screen").style.display = "none";
 	document.getElementById("gamearea").style.display = "none";
@@ -40,7 +59,7 @@ function game() {
 	document.getElementById("menu").style.display = "none";
 	textAreaValue = document.querySelector("textarea").value;
 	if (textAreaValue != "") {
-		words = textAreaValue.split(" ");
+		words = split(textAreaValue);
 	}
 	word.innerHTML = words[0];
 	next.innerHTML = checkUndefined(words[1]);
@@ -61,6 +80,7 @@ function complete() {
 	document.getElementById("endScreen").style.display = "";
 	console.log("complete!");
 	input.value = "";
+	// .prettier-ignore
 	document.getElementById("wpm").innerHTML =
 		"You were able to type " +
 		Math.round(chars(words) / 5 / ((Date.now() - startTime) / 60000)) +
@@ -88,7 +108,7 @@ function correctUpdate() {
 }
 
 function check() {
-	if (input.value.replace(/\s+/g, "") == words[score]) {
+	if (input.value.replace(" ", "") == words[score]) {
 		console.log("Correct.");
 		correctUpdate();
 	} else {

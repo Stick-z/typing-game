@@ -1,50 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Typing Test</title>
-  </head>
-  <body>
-    <div id="screen">
-      <table id="paragraph">
-        <tr>
-          <td id="pastWord"></td>
-          <td id="word"></td>
-          <td id="nextWord"></td>
-        </tr>
-      </table>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Typing Test</title>
+	</head>
+	<body>
+		<div id="screen">
+			<table id="paragraph">
+				<tr>
+					<td id="pastWord"></td>
+					<td id="word"></td>
+					<td id="nextWord"></td>
+				</tr>
+			</table>
+		</div>
 
-    <div id="gamearea">
-      <input type="text" id="input" />
-    </div>
+		<div id="gamearea">
+			<input type="text" id="input" />
+		</div>
 
-    <div id="endScreen">
-		<table>
-			<tr><td>
-					<h1>Complete!</h1>
-				</td></tr>
-				<tr><td>
-      				<p id="wpm"></p>
-				</td></tr>
-				<tr><td>
-					<button onclick="mainMenu()" id="goToMenu">Main Menu</button>
-				</td></tr>
-				</table>
-    </div>
+		<div id="endScreen">
+			<table>
+				<tr>
+					<td>
+						<h1>Complete!</h1>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p id="wpm"></p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button onclick="mainMenu()" id="goToMenu">Main Menu</button>
+					</td>
+				</tr>
+			</table>
+		</div>
 
-    <div id="menu">
-      <div id="button">
-        <button onclick="game()">PLAY</button>
-      </div>
-      <div id="textarea">
-        <p>Custom Words (Make sure there are no extra spaces)</p>
-        <textarea></textarea>
-      </div>
-    </div>
-    <script src="index.js"></script>
-  </body>
+		<div id="menu">
+			<div id="button">
+				<button onclick="game()">PLAY</button>
+			</div>
+			<div id="textarea">
+				<p>Custom Words (Seperate words with a space or line)</p>
+				<p>Note: Ensure there are no extra spaces or lines</p>
+				<textarea></textarea>
+			</div>
+		</div>
+		<script src="index.js"></script>
+	</body>
 </html>
